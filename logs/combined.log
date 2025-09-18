@@ -1,0 +1,6 @@
+{"level":"info","message":"Root endpoint accessed","service":"mindMirror"}
+{"level":"info","message":"::1 - - [17/Sep/2025:21:15:57 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
+{"level":"info","message":"Root endpoint accessed","service":"mindMirror"}
+{"level":"info","message":"::1 - - [18/Sep/2025:10:06:30 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
+{"level":"info","message":"::1 - - [18/Sep/2025:10:06:52 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
+{"level":"info","message":"::1 - - [18/Sep/2025:10:07:01 +0000] \"GET /api HTTP/1.1\" 200 29 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
