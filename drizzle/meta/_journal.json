@@ -8,6 +8,13 @@
       "when": 1758105622680,
       "tag": "0000_young_oracle",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1758615044270,
+      "tag": "0001_clever_the_enforcers",
+      "breakpoints": true
     }
   ]
 }

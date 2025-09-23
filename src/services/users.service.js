@@ -1,4 +1,3 @@
-
 import logger from '#config/logger.js';
 import { db } from '#config/database.js';
 import { users } from '#models/user.model.js';

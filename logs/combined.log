@@ -18,3 +18,5 @@
 {"level":"info","message":"::1 - - [18/Sep/2025:12:45:04 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
 {"level":"info","message":"::1 - - [18/Sep/2025:12:45:14 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
 {"level":"info","message":"::1 - - [18/Sep/2025:12:45:24 +0000] \"GET /api HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
+{"level":"info","message":"Hello from Acquisitions!","service":"mindMirror"}
+{"level":"info","message":"::1 - - [19/Sep/2025:15:43:56 +0000] \"GET / HTTP/1.1\" 200 24 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36\"","service":"mindMirror"}
