@@ -35,15 +35,22 @@ export const createUser = async ({ name, email, password, role = 'user' }) => {
 
     const password_hash = await hashPassword(password);
 
+    
     const [newUser] = await db
       .insert(users)
-      .values({ name, email, password: password_hash, role })
+      .values({ 
+        name, 
+        email, 
+        password: password_hash, 
+        role: role || 'user'  
+      })
       .returning({
         id: users.id,
         name: users.name,
         email: users.email,
         role: users.role,
-        created_at: users.created_at,
+        createdAt: users.createdAt,  
+        updatedAt: users.updatedAt   
       });
 
     logger.info(`User ${newUser.email} created successfully`);
@@ -81,7 +88,7 @@ export const authenticateUser = async ({ email, password }) => {
       name: existingUser.name,
       email: existingUser.email,
       role: existingUser.role,
-      created_at: existingUser.created_at,
+      createdAt: existingUser.createdAt,
     };
   } catch (e) {
     logger.error(`Error authenticating user: ${e}`);

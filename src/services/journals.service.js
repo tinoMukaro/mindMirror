@@ -3,7 +3,7 @@ import { db } from '#config/database.js';
 import { journals } from '#models/journals.model.js';
 import { eq, and } from 'drizzle-orm';
 
-// Input validation for journal entries (kept from your original)
+// Input validation for journal entries
 const validateEntryInput = (title, content) => {
   if (!title || !content) {
     throw new Error('Title and content are required');
@@ -21,24 +21,23 @@ const validateEntryInput = (title, content) => {
 // Create new journal entry
 export const createJournal = async (user_id, title, content) => {
   try {
-    // Validate input
     validateEntryInput(title, content);
     
     const [journal] = await db
       .insert(journals)
       .values({
-        user_id,
+        userId: user_id,  // Changed from user_id to userId
         title: title.trim(),
         content: content.trim(),
-        updated_at: new Date()
+        updatedAt: new Date()  // Changed from updated_at to updatedAt
       })
       .returning({
         id: journals.id,
-        user_id: journals.user_id,
+        userId: journals.userId,  // Changed from user_id to userId
         title: journals.title,
         content: journals.content,
-        created_at: journals.created_at,
-        updated_at: journals.updated_at
+        createdAt: journals.createdAt,  // Changed from created_at to createdAt
+        updatedAt: journals.updatedAt   // Changed from updated_at to updatedAt
       });
 
     logger.info(`Journal entry created for user ${user_id}`);
@@ -59,11 +58,11 @@ export const getJournalById = async (id) => {
     const [journal] = await db
       .select({
         id: journals.id,
-        user_id: journals.user_id,
+        userId: journals.userId,  // Changed from user_id to userId
         title: journals.title,
         content: journals.content,
-        created_at: journals.created_at,
-        updated_at: journals.updated_at
+        createdAt: journals.createdAt,  // Changed from created_at to createdAt
+        updatedAt: journals.updatedAt   // Changed from updated_at to updatedAt
       })
       .from(journals)
       .where(eq(journals.id, id))
@@ -90,15 +89,15 @@ export const getJournalsByUser = async (user_id) => {
     return await db
       .select({
         id: journals.id,
-        user_id: journals.user_id,
+        userId: journals.userId,  // Changed from user_id to userId
         title: journals.title,
         content: journals.content,
-        created_at: journals.created_at,
-        updated_at: journals.updated_at
+        createdAt: journals.createdAt,  // Changed from created_at to createdAt
+        updatedAt: journals.updatedAt   // Changed from updated_at to updatedAt
       })
       .from(journals)
-      .where(eq(journals.user_id, user_id))
-      .orderBy(journals.created_at);
+      .where(eq(journals.userId, user_id))  // Changed from user_id to userId
+      .orderBy(journals.createdAt);  // Changed from created_at to createdAt
   } catch (e) {
     logger.error(`Error getting journals for user ${user_id}:`, e);
     throw e;
@@ -115,16 +114,16 @@ export const updateJournal = async (id, user_id, title, content) => {
       .set({
         title: title.trim(),
         content: content.trim(),
-        updated_at: new Date()
+        updatedAt: new Date()  // Changed from updated_at to updatedAt
       })
-      .where(and(eq(journals.id, id), eq(journals.user_id, user_id)))
+      .where(and(eq(journals.id, id), eq(journals.userId, user_id)))  // Changed from user_id to userId
       .returning({
         id: journals.id,
-        user_id: journals.user_id,
+        userId: journals.userId,  // Changed from user_id to userId
         title: journals.title,
         content: journals.content,
-        created_at: journals.created_at,
-        updated_at: journals.updated_at
+        createdAt: journals.createdAt,  // Changed from created_at to createdAt
+        updatedAt: journals.updatedAt   // Changed from updated_at to updatedAt
       });
 
     if (!updatedJournal) {
@@ -148,7 +147,7 @@ export const deleteJournal = async (id, user_id) => {
     
     const [deletedJournal] = await db
       .delete(journals)
-      .where(and(eq(journals.id, id), eq(journals.user_id, user_id)))
+      .where(and(eq(journals.id, id), eq(journals.userId, user_id)))  // Changed from user_id to userId
       .returning({
         id: journals.id,
         title: journals.title
@@ -176,14 +175,14 @@ export const getUserJournalById = async (id, user_id) => {
     const [journal] = await db
       .select({
         id: journals.id,
-        user_id: journals.user_id,
+        userId: journals.userId,  // Changed from user_id to userId
         title: journals.title,
         content: journals.content,
-        created_at: journals.created_at,
-        updated_at: journals.updated_at
+        createdAt: journals.createdAt,  // Changed from created_at to createdAt
+        updatedAt: journals.updatedAt   // Changed from updated_at to updatedAt
       })
       .from(journals)
-      .where(and(eq(journals.id, id), eq(journals.user_id, user_id)))
+      .where(and(eq(journals.id, id), eq(journals.userId, user_id)))  // Changed from user_id to userId
       .limit(1);
 
     if (!journal) {
