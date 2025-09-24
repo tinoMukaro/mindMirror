@@ -108,7 +108,7 @@ export default function Journal() {
       {/* Stats */}
       <div className="flex gap-6 text-sm text-gray-400 mb-8">
         <span>✍️ {entries.reduce((sum, e) => sum + (e.content?.split(" ").length || 0), 0)} Words Written</span>
-        <span>🗓️ {entries.length} Days Journaled</span>
+        <span>🗓️ {entries.length} Entries</span>
       </div>
 
       {/* Error message */}

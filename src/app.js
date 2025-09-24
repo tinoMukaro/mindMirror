@@ -8,6 +8,7 @@ import authRoutes from '#routes/auth.routes.js';
 import securityMiddleware from './middleware/security.middleware.js';
 import usersRoutes from './routes/user.routes.js';
 import journalsRoutes from './routes/journals.routes.js';
+import insightsRoutes from './routes/insights.routes.js';
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.get('/api', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/journals', journalsRoutes);
+app.use('/api/insights', insightsRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
