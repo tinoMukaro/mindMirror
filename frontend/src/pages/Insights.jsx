@@ -1,207 +1,169 @@
-import { useState } from "react";
-import api from "../services/api";
-import { Brain, Loader2, RefreshCcw } from "lucide-react";
+import { Brain, Sparkles, BarChart3, Heart, Target, Calendar } from "lucide-react";
 
 export default function Insights() {
-  const [loading, setLoading] = useState(false);
-  const [insight, setInsight] = useState(null);
-  const [error, setError] = useState(null);
-
-  const fetchInsights = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      console.log('Making API call to insights/generate...');
-      
-      // Your API already handles baseURL and credentials
-      const response = await api.post("insights/generate");
-      console.log('API Response:', response);
-      
-      setInsight(response);
-    } catch (err) {
-      console.error('Full error object:', err);
-      console.error('Error details:', err.response || err);
-      
-      // Your API interceptor returns error.response.data, so err should contain the error message
-      const errorMessage = err.message || 
-                          err.error || 
-                          "Failed to generate insights. Please try again.";
-      setError(errorMessage);
-    } finally {
-      setLoading(false);
+  const features = [
+    {
+      icon: Sparkles,
+      title: "AI-Powered Analysis",
+      description: "Get intelligent summaries of your journal entries using advanced natural language processing"
+    },
+    {
+      icon: BarChart3,
+      title: "Emotional Trends",
+      description: "Track your mood patterns and emotional journey over time with sentiment analysis"
+    },
+    {
+      icon: Heart,
+      title: "Personal Insights",
+      description: "Discover recurring themes and patterns in your thoughts and experiences"
+    },
+    {
+      icon: Target,
+      title: "Goal Tracking",
+      description: "Identify progress towards your personal goals and aspirations"
+    },
+    {
+      icon: Calendar,
+      title: "Timeline View",
+      description: "See how your thoughts and feelings evolve across different time periods"
     }
-  };
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center px-6 py-12">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 flex items-center justify-center">
-          Mind Mirror
-          <Brain className="inline-block w-8 h-8 md:w-12 md:h-12 text-indigo-500 ml-2" />
-        </h1>
-        <p className="text-lg text-gray-400 max-w-xl">
-          Get AI-powered insights from your journal entries. Understand your thoughts, emotions, and patterns.
-        </p>
-      </div>
-
-      <button
-        onClick={fetchInsights}
-        disabled={loading}
-        className="bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 transition-all duration-200 font-medium text-lg"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="animate-spin w-5 h-5" />
-            Analyzing Your Journals...
-          </>
-        ) : (
-          <>
-            <RefreshCcw className="w-5 h-5" />
-            Generate Insights
-          </>
-        )}
-      </button>
-
-      {error && (
-        <div className="mt-6 p-4 bg-red-900/50 border border-red-700 rounded-xl max-w-xl w-full">
-          <p className="text-red-400 text-lg font-medium">Error</p>
-          <p className="text-red-300">{error}</p>
-          <button 
-            onClick={() => setError(null)}
-            className="mt-2 text-red-300 hover:text-red-100 text-sm"
-          >
-            Dismiss
-          </button>
-        </div>
-      )}
-
-      {insight && (
-        <div className="mt-8 max-w-4xl w-full space-y-6">
-          {/* Insight Header */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-indigo-400">
-                📊 Your Journal Insights
-              </h2>
-              <span className="bg-indigo-600 px-3 py-1 rounded-full text-sm capitalize">
-                {insight.type || 'ai_enhanced'} analysis
-              </span>
-            </div>
-            <p className="text-gray-300 mb-2">
-              {insight.message || 'Insights generated successfully'}
-            </p>
-            <p className="text-sm text-gray-500">
-              Analyzed {insight.insights?.entriesAnalyzed || 0} journal entries
-            </p>
+    <div className="min-h-screen bg-gray-900 text-gray-100">
+      <div className="container mx-auto px-6 py-16 max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center mb-6">
+            <Brain className="w-16 h-16 text-indigo-500 mr-4" />
+            <h1 className="text-5xl md:text-7xl font-bold text-white">
+              Mind Mirror
+            </h1>
           </div>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            AI-powered journal insights that help you understand yourself better
+          </p>
+        </div>
 
-          {/* Summary Card */}
-          {insight.insights?.summary && (
-            <div className="bg-gray-800 p-6 rounded-2xl shadow-lg">
-              <h3 className="font-semibold text-green-400 text-lg mb-3 flex items-center">
-                📝 Summary
-              </h3>
-              <p className="text-gray-300 leading-relaxed">
-                {insight.insights.summary}
+        {/* Coming Soon Banner */}
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-center mb-16 shadow-2xl">
+          <div className="max-w-2xl mx-auto">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-black/20 text-white text-sm font-medium mb-4">
+              <Sparkles className="w-4 h-4 mr-2" />
+              Coming Soon
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Powerful Insights Are on Their Way
+            </h2>
+            <p className="text-indigo-100 text-lg mb-6">
+              We're working hard to bring you AI-powered analysis of your journal entries. 
+              This feature will help you discover patterns, track emotions, and gain deeper self-awareness.
+            </p>
+            <div className="bg-white/10 rounded-lg p-4 inline-block">
+              <p className="text-white font-semibold">
+                Expected Launch: Early 2025
               </p>
             </div>
-          )}
+          </div>
+        </div>
 
-          {/* Sentiment Card */}
-          {insight.insights?.sentiment && (
-            <div className="bg-gray-800 p-6 rounded-2xl shadow-lg">
-              <h3 className="font-semibold text-green-400 text-lg mb-3 flex items-center">
-                😊 Sentiment Analysis
-              </h3>
-              <div className="flex items-center gap-4">
-                <span className={`px-4 py-2 rounded-full font-medium capitalize ${
-                  insight.insights.sentiment.label === 'positive' ? 'bg-green-600 text-green-100' :
-                  insight.insights.sentiment.label === 'negative' ? 'bg-red-600 text-red-100' :
-                  'bg-yellow-600 text-yellow-100'
-                }`}>
-                  {insight.insights.sentiment.label}
-                </span>
-                <span className="text-gray-300">
-                  Confidence: {Math.round((insight.insights.sentiment.score || 0) * 100)}%
-                </span>
-              </div>
-            </div>
-          )}
-
-          {/* Themes Card */}
-          {insight.insights?.themes?.primaryThemes && insight.insights.themes.primaryThemes.length > 0 && (
-            <div className="bg-gray-800 p-6 rounded-2xl shadow-lg">
-              <h3 className="font-semibold text-green-400 text-lg mb-3 flex items-center">
-                🎯 Key Themes
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {insight.insights.themes.primaryThemes.map((theme, index) => (
-                  <div key={theme} className="bg-indigo-600 px-4 py-2 rounded-full flex items-center gap-2">
-                    <span className="font-medium capitalize">{theme}</span>
-                    <span className="text-indigo-200 text-sm">
-                      {Math.round((insight.insights.themes.scores[index] || 0) * 100)}%
-                    </span>
+        {/* Features Grid */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center text-white mb-12">
+            What to Expect
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-all duration-300 group">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-indigo-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <feature.icon className="w-6 h-6 text-white" />
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Stats Card */}
-          <div className="bg-gray-800 p-6 rounded-2xl shadow-lg">
-            <h3 className="font-semibold text-green-400 text-lg mb-3 flex items-center">
-              📈 Analysis Details
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-              <div>
-                <span className="text-gray-400">Entries Analyzed:</span>{' '}
-                {insight.insights?.entriesAnalyzed || 0}
-              </div>
-              {insight.insights?.timeframe && (
-                <>
-                  <div>
-                    <span className="text-gray-400">Timeframe:</span>{' '}
-                    {insight.insights.timeframe.oldest ? 
-                      new Date(insight.insights.timeframe.oldest).toLocaleDateString() : 'N/A'}
-                    {' → '}
-                    {insight.insights.timeframe.newest ? 
-                      new Date(insight.insights.timeframe.newest).toLocaleDateString() : 'N/A'}
-                  </div>
-                </>
-              )}
-              {insight.insights?.averageEntryLength && (
-                <div>
-                  <span className="text-gray-400">Avg Entry Length:</span>{' '}
-                  {insight.insights.averageEntryLength} words
+                  <h4 className="text-xl font-semibold text-white ml-4">
+                    {feature.title}
+                  </h4>
                 </div>
-              )}
+                <p className="text-gray-400 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="bg-gray-800 rounded-2xl p-8 mb-16">
+          <h3 className="text-3xl font-bold text-center text-white mb-8">
+            How It Will Work
+          </h3>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="space-y-4">
+              <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg">
+                1
+              </div>
+              <h4 className="text-xl font-semibold text-white">Write Journals</h4>
+              <p className="text-gray-400">
+                Continue writing your daily thoughts and experiences as you normally do
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg">
+                2
+              </div>
+              <h4 className="text-xl font-semibold text-white">Generate Insights</h4>
+              <p className="text-gray-400">
+                Click the analyze button to process your entries with AI technology
+              </p>
+            </div>
+            <div className="space-y-4">
+              <div className="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mx-auto text-white font-bold text-lg">
+                3
+              </div>
+              <h4 className="text-xl font-semibold text-white">Discover Patterns</h4>
+              <p className="text-gray-400">
+                Receive meaningful insights about your thoughts, emotions, and growth
+              </p>
             </div>
           </div>
+        </div>
 
-          {/* Regenerate Button */}
-          <div className="text-center">
-            <button
-              onClick={fetchInsights}
-              disabled={loading}
-              className="bg-gray-700 hover:bg-gray-600 disabled:opacity-50 px-6 py-2 rounded-xl flex items-center gap-2 mx-auto"
-            >
-              <RefreshCcw className="w-4 h-4" />
-              Regenerate Insights
-            </button>
+        {/* Call to Action */}
+        <div className="text-center">
+          <div className="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Ready for Deeper Self-Discovery?
+            </h3>
+            <p className="text-gray-400 mb-6">
+              Keep journaling regularly to build a rich collection of entries. 
+              When insights launch, you'll have plenty of material to analyze!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => window.location.href = '/journal'}
+                className="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              >
+                Write a Journal Entry
+              </button>
+              <button 
+                onClick={() => window.location.href = '/journals'}
+                className="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
+              >
+                View My Journals
+              </button>
+            </div>
           </div>
         </div>
-      )}
 
-      {!insight && !error && !loading && (
-        <div className="mt-8 text-center">
-          <p className="text-lg text-gray-400 max-w-xl">
-            No insights generated yet. Click the button above to analyze your journal entries and discover patterns in your thoughts.
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            You'll need at least one journal entry to generate insights.
+        {/* Newsletter Signup (Optional) */}
+        <div className="text-center mt-16">
+          <p className="text-gray-500 text-sm">
+            Want to be notified when insights launch? 
+            <a href="#" className="text-indigo-400 hover:text-indigo-300 ml-1">
+              Join the waitlist
+            </a>
           </p>
         </div>
-      )}
+      </div>
     </div>
   );
 }
