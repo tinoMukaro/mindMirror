@@ -14,7 +14,7 @@ export default function Home() {
           <Brain className="inline-block w-8 h-8 text-indigo-500 ml-2" />
         </h1>
         <p className="text-lg text-gray-400 max-w-xl mx-auto">
-          A journal that listens. Reflects. Learns. Let your thoughts guide you—
+          A journal that listens. Reflects. Learns. Let your thoughts guide you
           and your patterns reveal themselves.
         </p>
       </header>
@@ -44,7 +44,7 @@ export default function Home() {
         <div className="bg-gray-800 p-6 rounded-2xl shadow-md">
           <h3 className="text-xl font-semibold mb-2">Monthly Summaries</h3>
           <p className="text-sm text-gray-400">
-            Automatic summaries that reflect what you've written.
+            Summaries that reflect what you've written.
           </p>
         </div>
       </section>
