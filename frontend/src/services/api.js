@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://mind-mirror-jx53.vercel.app/', 
+  baseURL: 'https://mind-mirror-jx53.vercel.app/api/', 
   withCredentials: true, // This is crucial for cookies to work
 });
 
