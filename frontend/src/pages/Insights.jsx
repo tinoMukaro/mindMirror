@@ -61,7 +61,7 @@ export default function Insights() {
             </p>
             <div className="bg-white/10 rounded-lg p-4 inline-block">
               <p className="text-white font-semibold">
-                Expected Launch: Early 2025
+                Expected Launch: End of October
               </p>
             </div>
           </div>
@@ -154,15 +154,6 @@ export default function Insights() {
           </div>
         </div>
 
-        {/* Newsletter Signup (Optional) */}
-        <div className="text-center mt-16">
-          <p className="text-gray-500 text-sm">
-            Want to be notified when insights launch? 
-            <a href="#" className="text-indigo-400 hover:text-indigo-300 ml-1">
-              Join the waitlist
-            </a>
-          </p>
-        </div>
       </div>
     </div>
   );
