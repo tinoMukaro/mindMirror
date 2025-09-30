@@ -127,33 +127,6 @@ export default function Insights() {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center">
-          <div className="bg-gray-800 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready for Deeper Self-Discovery?
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Keep journaling regularly to build a rich collection of entries. 
-              When insights launch, you'll have plenty of material to analyze!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => window.location.href = '/journal'}
-                className="bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-              >
-                Write a Journal Entry
-              </button>
-              <button 
-                onClick={() => window.location.href = '/journals'}
-                className="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-xl font-semibold transition-colors duration-200"
-              >
-                View My Journals
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );
