@@ -37,8 +37,12 @@ If you’d like to contribute:
 
 ## 🛠️ Tech Stack
 - **Frontend:** React, TailwindCSS, Axios  
-- **Backend:** Express.js / Django API (auth, journals, summaries)  
-- **Database:** PostgreSQL  
+- **Backend:** Express.js (auth, journals, summaries)  
+- **zod** — input validation
+- **helmet** — security headers
+- **morgan & winston** — logging
+- **arcjet/inspect** — debugging & error tracking
+- **Database:** PostgreSQL(Neon)  
 - **AI/ML:** Hugging Face + NLP pipelines for text summarization and analysis  
 - **Deployment:** Vercel (frontend) + Vercel/Render/Other (backend)  
 
