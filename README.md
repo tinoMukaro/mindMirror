@@ -3,7 +3,7 @@
 Mind Mirror is a **machine-learning powered journaling app** designed to help users reflect on their thoughts and emotions.  
 By analysing journal entries, the app provides **summaries**, **recurring themes**, and **insightful suggestions** to encourage self-growth and reflection.  
 
-🚀 Live App: [Mind Mirror on Vercel](https://mind-mirror.vercel.app)  
+🚀 Live App: [Mind Mirror on Vercel](https://mind-mirror-three.vercel.app/)  
 
 ---
 
