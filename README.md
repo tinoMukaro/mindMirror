@@ -12,7 +12,7 @@ By analysing journal entries, the app provides **summaries**, **recurring themes
 - 🤖 Machine learning–based weekly summaries of entries  
 - 🔍 Automatic detection of recurring patterns and themes  
 - 🔒 User authentication with JWT & secure cookies  
-- 🌐 Deployed with **Vercel** (frontend) + **Express/Django backend**  
+- 🌐 Deployed with **Vercel** (frontend) + **Express backend**  
 
 ---
 
