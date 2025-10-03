@@ -195,3 +195,41 @@ export const getUserJournalById = async (id, user_id) => {
     throw e;
   }
 };
+
+/**
+ * Get the 7 most recent journal entries for a user (for weekly summaries)
+ * @param {string} user_id - User ID
+ * @returns {Promise<Array>} - Array of 7 most recent journal entries
+ */
+export const getRecentJournals = async (user_id) => {
+  try {
+    if (!user_id) {
+      throw new Error('User ID is required');
+    }
+
+    const entries = await db
+      .select({
+        id: journals.id,
+        userId: journals.userId,
+        title: journals.title,
+        content: journals.content,
+        createdAt: journals.createdAt,
+        updatedAt: journals.updatedAt
+      })
+      .from(journals)
+      .where(eq(journals.userId, user_id))
+      .orderBy(journals.createdAt) // Get oldest first for chronological context
+      .limit(7); // Get exactly 7 most recent entries
+
+    logger.info(`Found ${entries.length} recent journal entries for user ${user_id}`);
+    
+    if (entries.length === 0) {
+      throw new Error('No journal entries found for summary');
+    }
+
+    return entries;
+  } catch (e) {
+    logger.error(`Error getting recent journals for user ${user_id}:`, e);
+    throw e;
+  }
+};
