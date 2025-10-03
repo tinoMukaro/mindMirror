@@ -42,7 +42,7 @@ export default function Home() {
           </p>
         </div>
         <div className="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <h3 className="text-xl font-semibold mb-2">Monthly Summaries</h3>
+          <h3 className="text-xl font-semibold mb-2">Weekly Summaries</h3>
           <p className="text-sm text-gray-400">
             Summaries that reflect what you've written.
           </p>
