@@ -41,7 +41,7 @@ If you’d like to contribute:
 - **zod** — input validation
 - **helmet** — security headers
 - **morgan & winston** — logging
-- **arcjet/inspect** — debugging & error tracking
+- **arcjet/inspect** — security and rate limiting
 - **Database:** PostgreSQL(Neon)  
 - **AI/ML:** Hugging Face + NLP pipelines for text summarization and analysis  
 - **Deployment:** Vercel (frontend) + Vercel/Render/Other (backend)  
