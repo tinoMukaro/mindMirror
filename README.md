@@ -44,7 +44,7 @@ If you’d like to contribute:
 - **arcjet/inspect** — security and rate limiting
 - **Database:** PostgreSQL(Neon)  
 - **AI/ML:** Hugging Face + NLP pipelines for text summarization and analysis  
-- **Deployment:** Vercel (frontend) + Vercel/Render/Other (backend)  
+- **Deployment:** Vercel (frontend) + Vercel(backend)  
 
 ---
 
