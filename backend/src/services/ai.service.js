@@ -27,15 +27,16 @@ export const generateWeeklySummary = async (entries) => {
       .join('\n\n');
 
     // Create a thoughtful prompt for the AI
-    const prompt = `Please provide a thoughtful and compassionate summary of the user's 7 most recent journal entries. 
-           Focus on:
-         - Emotional patterns and mood shifts across these entries
-         - Key events, themes, or recurring topics
-         - Personal growth, challenges, or realizations
-         - Overall emotional journey through these recent writings
+    const prompt = `Summarize the user’s last 7 journal entries — keep it real, not a TED Talk.
+Focus on:
+Mood swings or emotional patterns
+Recurring themes or drama
+Growth moments (if any)
+The overall vibe of their recent life saga
 
-         Write it in a warm, reflective tone as if speaking to a friend who wrote these entries.
-         Be empathetic and highlight both struggles and successes.
+If they’re exaggerating or dodging the truth, call them out — gently but smartly.
+Be a bit sarcastic, witty, and honest, but end on a respectful, grounded note that leaves them feeling understood.
+Keep the summary average in length — insightful but not an essay.
 
 Recent Journal Entries:
 ${combinedText}
