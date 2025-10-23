@@ -48,8 +48,7 @@ export default function AuthPage() {
         });
       }
 
-      // Your backend returns { message, user } - token is HTTP-only cookie
-      // The axios interceptor will automatically include the cookie in future requests
+      
       console.log("Auth successful:", res);
       
       // Navigate to journal on success
@@ -58,16 +57,16 @@ export default function AuthPage() {
     } catch (err) {
       console.error("Auth failed:", err);
       
-      // Handle error response format from your backend
+      // Handle error response format from backend
       const errorMessage = err.error || err.message || `Failed to ${isLogin ? "log in" : "register"}`;
       setError(errorMessage);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-      <form onSubmit={handleSubmit} className="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-sm">
-        <h2 className="text-2xl font-bold mb-6">{isLogin ? "Login" : "Register"}</h2>
+    <div className="min-h-screen flex items-center justify-center bg-white text-gray-800">
+      <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg shadow-md w-full max-w-sm border border-lime-100">
+        <h2 className="text-2xl font-bold mb-6 text-lime-700">{isLogin ? "Login" : "Register"}</h2>
 
         {!isLogin && (
           <input
@@ -76,7 +75,7 @@ export default function AuthPage() {
             placeholder="Full Name"
             value={form.name || ""}
             onChange={handleChange}
-            className="w-full mb-4 p-2 rounded bg-gray-700 text-white placeholder-gray-400"
+            className="w-full mb-4 p-2 rounded bg-white text-gray-800 placeholder-gray-500 border border-lime-200 focus:border-lime-400 focus:ring-1 focus:ring-lime-400"
             required={!isLogin}
           />
         )}
@@ -87,7 +86,7 @@ export default function AuthPage() {
           placeholder="Email"
           value={form.email}
           onChange={handleChange}
-          className="w-full mb-4 p-2 rounded bg-gray-700 text-white placeholder-gray-400"
+          className="w-full mb-4 p-2 rounded bg-white text-gray-800 placeholder-gray-500 border border-lime-200 focus:border-lime-400 focus:ring-1 focus:ring-lime-400"
           required
         />
 
@@ -97,7 +96,7 @@ export default function AuthPage() {
           placeholder="Password"
           value={form.password}
           onChange={handleChange}
-          className="w-full mb-4 p-2 rounded bg-gray-700 text-white placeholder-gray-400"
+          className="w-full mb-4 p-2 rounded bg-white text-gray-800 placeholder-gray-500 border border-lime-200 focus:border-lime-400 focus:ring-1 focus:ring-lime-400"
           required
         />
 
@@ -105,7 +104,7 @@ export default function AuthPage() {
 
         <button
           type="submit"
-          className="w-full bg-indigo-600 hover:bg-indigo-700 p-2 rounded font-semibold"
+          className="w-full bg-lime-500 hover:bg-lime-600 text-white p-2 rounded font-semibold transition-colors"
         >
           {isLogin ? "Log In" : "Register"}
         </button>
@@ -113,7 +112,7 @@ export default function AuthPage() {
         <button
           type="button"
           onClick={toggleMode}
-          className="text-sm mt-4 text-indigo-400 hover:underline"
+          className="text-sm mt-4 text-lime-600 hover:text-lime-700 hover:underline transition-colors"
         >
           {isLogin ? "Don't have an account? Register" : "Already have an account? Log in"}
         </button>

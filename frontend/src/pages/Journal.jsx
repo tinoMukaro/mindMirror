@@ -29,7 +29,6 @@ export default function Journal() {
         setLoading(true);
         const res = await api.get("journals"); 
         
-        // Your backend returns: { message: "...", journals: entries, count: number }
         const entriesData = res.journals || [];
         setEntries(entriesData.reverse()); 
       } catch (err) {
@@ -72,8 +71,8 @@ export default function Journal() {
   // Show loading state
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 text-gray-100 px-4 py-6 flex items-center justify-center">
-        <div className="text-gray-400">Loading entries...</div>
+      <div className="min-h-screen bg-white text-gray-800 px-4 py-6 flex items-center justify-center">
+        <div className="text-gray-600">Loading entries...</div>
       </div>
     );
   }
@@ -81,39 +80,39 @@ export default function Journal() {
   // Show error state
   if (error && entries.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-900 text-gray-100 px-4 py-6 flex items-center justify-center">
-        <div className="text-red-400">{error}</div>
+      <div className="min-h-screen bg-white text-gray-800 px-4 py-6 flex items-center justify-center">
+        <div className="text-red-500">{error}</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 px-4 py-6 relative">
+    <div className="min-h-screen bg-white text-gray-800 px-4 py-6 relative">
       {/* Header */}
       <div className="flex items-center justify-end mb-6">
-        <h1 className="text-3xl font-bold mr-auto">Journal</h1>
-        <button className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 mr-1.5">
-          <Search className="w-5 h-5 text-gray-300" />
+        <h1 className="text-3xl font-bold mr-auto text-lime-700">Journal</h1>
+        <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 mr-1.5 border border-lime-200">
+          <Search className="w-5 h-5 text-gray-600" />
         </button>
-        <button className="p-2 rounded-full bg-gray-800 hover:bg-gray-700">
-          <User className="w-5 h-5 text-gray-300" />
+        <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 border border-lime-200">
+          <User className="w-5 h-5 text-gray-600" />
         </button>
         <Link to="/insights">
-          <button className="p-2 rounded-4xl bg-indigo-600 hover:bg-indigo-700 mr-1.5">
+          <button className="p-2 rounded-4xl bg-lime-500 hover:bg-lime-600 text-white mr-1.5">
             <Brain className="w-5 h-5" />
           </button>
         </Link> 
       </div>
 
       {/* Stats */}
-      <div className="flex gap-6 text-sm text-gray-400 mb-8">
+      <div className="flex gap-6 text-sm text-gray-600 mb-8">
         <span>✍️ {entries.reduce((sum, e) => sum + (e.content?.split(" ").length || 0), 0)} Words Written</span>
         <span>🗓️ {entries.length} Entries</span>
       </div>
 
       {/* Error message */}
       {error && (
-        <div className="bg-red-900/20 border border-red-700 text-red-300 p-3 rounded mb-4">
+        <div className="bg-red-50 border border-red-300 text-red-700 p-3 rounded mb-4">
           {error}
         </div>
       )}

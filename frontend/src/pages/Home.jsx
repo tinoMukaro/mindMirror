@@ -6,14 +6,14 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen bg-white text-gray-800 flex flex-col items-center justify-center px-6">
       {/* Header */}
       <header className="text-center mb-10">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-lime-600 mb-4">
           Mind Mirror
-          <Brain className="inline-block w-8 h-8 text-indigo-500 ml-2" />
+          <Brain className="inline-block w-8 h-8 text-lime-500 ml-2" />
         </h1>
-        <p className="text-lg text-gray-400 max-w-xl mx-auto">
+        <p className="text-lg text-gray-600 max-w-xl mx-auto">
           A journal that listens. Reflects. Learns. Let your thoughts guide you
           and your patterns reveal themselves.
         </p>
@@ -24,7 +24,7 @@ export default function Home() {
        {/* Actions */}
       
         <Link to="/login">{/*tinoMukaro*/}
-         <Button className="bg-indigo-600 hover:bg-indigo-700">
+         <Button className="bg-lime-500 hover:bg-lime-600 text-white">
          <PenTool className="w-5 h-5 mr-2" />
          Start Journaling
          </Button>
@@ -35,15 +35,15 @@ export default function Home() {
 
       {/* Feature preview section */}
       <section className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <h3 className="text-xl font-semibold mb-2">Dominant Thought Detector</h3>
-          <p className="text-sm text-gray-400">
+        <div className="bg-gray-50 p-6 rounded-2xl shadow-md border border-lime-100">
+          <h3 className="text-xl font-semibold mb-2 text-lime-700">Dominant Thought Detector</h3>
+          <p className="text-sm text-gray-600">
             See which thoughts or emotions appear frequently over time.
           </p>
         </div>
-        <div className="bg-gray-800 p-6 rounded-2xl shadow-md">
-          <h3 className="text-xl font-semibold mb-2">Weekly Summaries</h3>
-          <p className="text-sm text-gray-400">
+        <div className="bg-gray-50 p-6 rounded-2xl shadow-md border border-lime-100">
+          <h3 className="text-xl font-semibold mb-2 text-lime-700">Weekly Summaries</h3>
+          <p className="text-sm text-gray-600">
             Summaries that reflect what you've written.
           </p>
         </div>

@@ -43,7 +43,7 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
           content: content.trim(),
         });
         
-        // Your backend returns: { message: "...", journal: updatedEntry }
+        
         onEditSave(res.journal); // Extract the journal object
       } else {
         // CREATE NEW ENTRY
@@ -52,7 +52,7 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
           content: content.trim(),
         });
         
-        // Your backend returns: { message: "...", journal: newEntry }
+        
         addEntry(res.journal); // Extract the journal object
       }
 
@@ -66,24 +66,24 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && e.metaKey) { // Cmd+Enter to save
+    if (e.key === 'Enter' && e.metaKey) { 
       handleSubmit();
     }
   };
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-gray-900 p-8 rounded-2xl w-full max-w-5xl min-h-[90vh] shadow-2xl text-gray-100 relative flex flex-col">
+      <div className="bg-white p-8 rounded-2xl w-full max-w-5xl min-h-[90vh] shadow-2xl text-gray-800 relative flex flex-col border border-lime-100">
 
         {/* Top bar */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold text-gray-300">
+          <h2 className="text-xl font-semibold text-lime-700">
             {editEntry ? "Edit Journal Entry" : "New Journal Entry"}
           </h2>
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="text-indigo-400 hover:text-indigo-500 text-sm font-medium disabled:text-gray-500 disabled:cursor-not-allowed"
+            className="text-lime-500 hover:text-lime-600 text-sm font-medium disabled:text-gray-500 disabled:cursor-not-allowed"
           >
             {loading ? "Saving..." : "Done"}
           </button>
@@ -91,7 +91,7 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
 
         {/* Error message */}
         {error && (
-          <div className="bg-red-900/20 border border-red-700 text-red-300 p-3 rounded mb-4">
+          <div className="bg-red-50 border border-red-300 text-red-700 p-3 rounded mb-4">
             {error}
           </div>
         )}
@@ -103,7 +103,7 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           onKeyPress={handleKeyPress}
-          className="w-full bg-transparent border-b border-gray-700 text-3xl font-bold mb-6 focus:outline-none focus:border-indigo-500 placeholder-gray-500"
+          className="w-full bg-transparent border-b border-gray-300 text-3xl font-bold mb-6 focus:outline-none focus:border-lime-500 placeholder-gray-500"
           disabled={loading}
         />
 
@@ -119,8 +119,8 @@ export default function JournalModal({ isOpen, onClose, addEntry, editEntry, onE
 
         {/* Loading overlay */}
         {loading && (
-          <div className="absolute inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center rounded-2xl">
-            <div className="text-indigo-400">Saving...</div>
+          <div className="absolute inset-0 bg-white bg-opacity-90 flex items-center justify-center rounded-2xl">
+            <div className="text-lime-500">Saving...</div>
           </div>
         )}
       </div>
