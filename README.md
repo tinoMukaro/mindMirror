@@ -1,29 +1,29 @@
-# 🧠 Mind Mirror  
+#  Mind Mirror  
 
 Mind Mirror is a **machine-learning powered journaling app** designed to help users reflect on their thoughts and emotions.  
 By analysing journal entries, the app provides **summaries**, **recurring themes**, and **insightful suggestions** to encourage self-growth and reflection.  
 
-🚀 Live App: [Mind Mirror on Vercel](https://mind-mirror-three.vercel.app/)  
+ Live App: [Mind Mirror on Vercel](https://mind-mirror-three.vercel.app/)  
 
 ---
 
-## ✨ Features
-- ✍️ Personal journal entry creation and management  
-- 🤖 Machine learning–based weekly summaries of entries  
-- 🔍 Automatic detection of recurring patterns and themes  
-- 🔒 User authentication with JWT & secure cookies  
-- 🌐 Deployed with **Vercel** (frontend) + **Express backend**  
+##  Features
+-  Personal journal entry creation and management  
+-  Machine learning–based weekly summaries of entries  
+-  Automatic detection of recurring patterns and themes  
+-  User authentication with JWT & secure cookies  
+-  Deployed with **Vercel** (frontend) + **Express backend**  
 
 ---
 
-## ⚠️ Disclaimer
+##  Disclaimer
 This project is **still a work in progress**.  
 Some features may misbehave, break, or change as development continues.  
 Expect updates and improvements over the next few weeks.  
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 Contributions, feedback, and collaboration are highly encouraged!  
 
 If you’d like to contribute:
@@ -35,7 +35,7 @@ If you’d like to contribute:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 - **Frontend:** React, TailwindCSS, Axios  
 - **Backend:** Express.js (auth, journals, summaries)  
 - **zod** — input validation
@@ -48,7 +48,7 @@ If you’d like to contribute:
 
 ---
 
-## 📅 Roadmap
+##  Roadmap
 - [x] User authentication & journals  
 - [x] AI-powered summaries & insights  
 - [ ] Mood tracking and visualization  
@@ -57,7 +57,7 @@ If you’d like to contribute:
 
 ---
 
-## 🙌 Acknowledgements
+##  Acknowledgements
 - Thanks to [Hugging Face](https://huggingface.co/) for free NLP models  
 - Inspiration from journaling + mental health awareness projects  
 
