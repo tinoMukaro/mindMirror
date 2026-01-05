@@ -3,7 +3,7 @@ import { useState } from "react";
 import api from "../services/api";
 
 export default function Insights() {
-  const [isLoading, setIsLoading] = = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [summary, setSummary] = useState(null);
   const [error, setError] = useState(null);
 
