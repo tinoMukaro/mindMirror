@@ -4,6 +4,7 @@ import Journal from "./pages/Journal";
 import Footer from "./components/Footer";
 import Insights from "./pages/Insights";
 import AuthPage from "./pages/AuthPage";
+import { Analytics } from "@vercel/analytics/next"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           </main>
           <Footer />
         </div>
+        <Analytics/>
       </Router>
   );
 }
