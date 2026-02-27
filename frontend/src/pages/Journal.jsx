@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import api from "../services/api"; 
-import { Search, Plus, User, Brain } from "lucide-react";
+import { Plus} from "lucide-react";
 import EntryCard from "../components/EntryCard";
 import FloatingButton from "../components/FloatingButton";
 import JournalModal from "../components/JournalModal";
-import { Link } from "react-router-dom";
+
+import Header from "../components/Header";
 
 export default function Journal() {
   const [entries, setEntries] = useState([]);
@@ -89,20 +90,7 @@ export default function Journal() {
   return (
     <div className="min-h-screen bg-white text-gray-800 px-4 py-6 relative">
       {/* Header */}
-      <div className="flex items-center justify-end mb-6">
-        <h1 className="text-3xl font-bold mr-auto text-lime-700">Journal</h1>
-        <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 mr-1.5 border border-lime-200">
-          <Search className="w-5 h-5 text-gray-600" />
-        </button>
-        <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 border border-lime-200">
-          <User className="w-5 h-5 text-gray-600" />
-        </button>
-        <Link to="/insights">
-          <button className="p-2 rounded-4xl bg-lime-500 hover:bg-lime-600 text-white mr-1.5">
-            <Brain className="w-5 h-5" />
-          </button>
-        </Link> 
-      </div>
+      <Header />
 
       {/* Stats */}
       <div className="flex gap-6 text-sm text-gray-600 mb-8">
